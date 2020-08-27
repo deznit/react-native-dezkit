@@ -1,17 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import Dezkit from 'react-native-dezkit';
+import { StyleSheet, View } from 'react-native';
+import { Button } from 'react-native-dezkit';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    Dezkit.multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Button></Button>
     </View>
   );
 }

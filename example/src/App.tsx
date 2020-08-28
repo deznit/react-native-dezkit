@@ -5,7 +5,7 @@ import { Button } from 'react-native-dezkit';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Button></Button>
+      <Button outline color="#000" />
     </View>
   );
 }

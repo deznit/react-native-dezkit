@@ -1,0 +1,11 @@
+{
+  "extends": "../.eslintrc",
+
+  "settings": {
+    "import/core-modules": ["react-native-dezkit"]
+  },
+
+  "rules": {
+    "react/prop-types": "off"
+  }
+}

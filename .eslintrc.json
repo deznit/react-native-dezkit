@@ -3,7 +3,7 @@
     "browser": true,
     "es2020": true
   },
-  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "extends": ["@react-native-community", "airbnb", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
@@ -14,6 +14,50 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
-    "prettier/prettier": ["warn"]
+    "prettier/prettier": ["warn"],
+    "one-var": "off",
+    "no-multi-assign": "error",
+    "no-nested-ternary": "off",
+    "global-require": "off",
+    "import/no-extraneous-dependencies": "off",
+    // "import/no-extraneous-dependencies": [
+    //   "error",
+    //   {
+    //     "devDependencies": true,
+    //     "optionalDependencies": true,
+    //     "peerDependencies": true
+    //   }
+    // ],
+    "import/first": "off",
+    "react-native/no-unused-styles": "warn",
+    "react-native/split-platform-components": "off",
+    "react-native/no-raw-text": "off",
+    "react/require-default-props": "off",
+    "no-use-before-define": "off",
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    // FIXME: change this to error later in version 1.0.0
+    "react/no-unused-prop-types": "off",
+    "import/prefer-default-export": "warn"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }

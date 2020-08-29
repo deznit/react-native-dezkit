@@ -8,7 +8,7 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native';
-
+// import { useTheme } from '../../core/Theming';
 type ButtonProps = {
   /*
    * - default -- with background color
@@ -23,10 +23,7 @@ type ButtonProps = {
   outline?: boolean;
   /*
    * - change in font size and padding
-   * - default is  "m"
-   */
-  size?: 's' | 'm' | 'l';
-  /*
+   * - default is  "m"contained
    * - button will be disabled
    * - default is false
    */
@@ -69,10 +66,12 @@ type ButtonProps = {
   /*
    * - Function to run on press
    */
+  theme?: any;
   onPress?: () => void;
 };
 
-const Button = ({ type, outline = false, color }: ButtonProps) => {
+const Button = ({ type, outline = false, color, onPress }: ButtonProps) => {
+  // const theme = useTheme();
   // TODO: check for text only button style
   const buttonTypeStyle =
     type === 'rounded' ? styles.roundedButton : styles.defaultButton;
@@ -83,7 +82,10 @@ const Button = ({ type, outline = false, color }: ButtonProps) => {
 
   const textColor = outline ? { color } : null;
   return (
-    <TouchableOpacity style={[styles.button, buttonTypeStyle, buttonColor]}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.button, buttonTypeStyle, buttonColor]}
+    >
       <View style={styles.content}>
         <Text style={[styles.label, textColor]}>Default</Text>
       </View>

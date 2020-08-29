@@ -1,12 +1,28 @@
-import * as React from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Button } from 'react-native-dezkit';
+import {
+  ThemeProvider,
+  useTheme,
+  DefaultTheme,
+  Button,
+} from 'react-native-dezkit';
+// Add new typescript properties to the theme
+
+const CustomTheme = {
+  dark: false,
+  colors: {
+    ...DefaultTheme.colors,
+  },
+};
 
 export default function App() {
+  const { colors } = useTheme();
   return (
-    <View style={styles.container}>
-      <Button outline color="#000" />
-    </View>
+    <ThemeProvider theme={CustomTheme}>
+      <View style={styles.container}>
+        <Button type="default" color={colors.secondary} />
+      </View>
+    </ThemeProvider>
   );
 }
 

@@ -1,0 +1,10 @@
+# Sidebar navigation
+
+- label: "Introduction"
+  link: "/"
+- label: "Getting started"
+  link: "/getting-started"
+- label: Button
+  items:
+    - label: "Default Button"
+      link: "/usage/creating-docs"

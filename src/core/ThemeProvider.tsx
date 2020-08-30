@@ -12,12 +12,15 @@ type DefaultThemeType = {
     primary: string;
     secondary: string;
     success: string;
+    accent: string;
     danger: string;
     warning: string;
     background: string;
     textDark: string;
     textLight: string;
+    disabled: string;
   };
+  borderWidth: number;
 };
 
 const createTheme = <T extends DefaultThemeType>(defaultTheme: T) => {

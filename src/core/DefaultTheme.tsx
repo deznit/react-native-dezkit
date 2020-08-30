@@ -10,7 +10,9 @@ const DefaultTheme = {
     textDark: '#2b2d42',
     textLight: '#ffffff',
     background: '#ffffff',
+    disabled: '#D6D6D6',
   },
+  borderWidth: 1,
 };
 
 // const DefaultTheme = {

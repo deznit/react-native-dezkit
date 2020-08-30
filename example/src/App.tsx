@@ -1,11 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import {
-  ThemeProvider,
-  useTheme,
-  DefaultTheme,
-  Button,
-} from 'react-native-dezkit';
+import { ThemeProvider, DefaultTheme, Button } from 'react-native-dezkit';
 // Add new typescript properties to the theme
 
 const CustomTheme = {
@@ -13,14 +8,30 @@ const CustomTheme = {
   colors: {
     ...DefaultTheme.colors,
   },
+  borderWidth: DefaultTheme.borderWidth,
 };
 
 export default function App() {
-  const { colors } = useTheme();
+  const onPress = () => {
+    console.log('hello');
+  };
   return (
     <ThemeProvider theme={CustomTheme}>
       <View style={styles.container}>
-        <Button type="default" color={colors.secondary} />
+        <Button
+          type="default"
+          uppercase={false}
+          color="primary"
+          onPress={onPress}
+          disabled
+        >
+          Default Button
+        </Button>
+        <Button type="text">Text Button</Button>
+        <Button type="rounded">Rounded Button</Button>
+        <Button type="rounded" outline>
+          Rounded Button
+        </Button>
       </View>
     </ThemeProvider>
   );

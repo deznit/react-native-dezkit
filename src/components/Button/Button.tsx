@@ -8,6 +8,8 @@ import {
   ViewStyle,
   TextStyle,
 } from 'react-native';
+import { useTheme } from '../../core/Theming';
+import type { ColorType } from '../../types';
 
 type ButtonProps = {
   /*
@@ -23,24 +25,21 @@ type ButtonProps = {
   outline?: boolean;
   /*
    * - change in font size and padding
-   * - default is  "m"
-   */
-  size?: 's' | 'm' | 'l';
-  /*
+   * - default is  "m"contained
    * - button will be disabled
    * - default is false
    */
   disabled?: boolean;
   /*
    * - Button label will be uppercase
-   * default is false
+   * default is true
    */
   uppercase?: boolean;
   /*
    * - colour of background for outline = false
    * - color of border outline = true
    */
-  color?: string;
+  color?: ColorType;
   /*
    * - will show spinner if set to true
    * - default is false
@@ -50,7 +49,7 @@ type ButtonProps = {
   /*
    * - label text to be rendered inside button
    */
-  children?: React.ReactNode;
+  children: React.ReactNode;
   /*
    * - pass styles for button here
    * - like adding padding/ margin around button
@@ -69,23 +68,76 @@ type ButtonProps = {
   /*
    * - Function to run on press
    */
+
   onPress?: () => void;
 };
 
-const Button = ({ type, outline = false, color }: ButtonProps) => {
-  // TODO: check for text only button style
+const Button = ({
+  type,
+  outline = false,
+  color = 'danger',
+  onPress,
+  children,
+  uppercase = true,
+  textStyle,
+  buttonStyle,
+  contentStyle,
+  disabled,
+}: ButtonProps) => {
+  const theme = useTheme();
+  let buttonColor;
+
   const buttonTypeStyle =
     type === 'rounded' ? styles.roundedButton : styles.defaultButton;
 
-  const buttonColor = outline
-    ? [styles.outlineButton, { borderColor: color }]
-    : { backgroundColor: color };
+  if (type === 'default' || type === 'rounded') {
+    buttonColor = outline
+      ? !disabled
+        ? [
+            {
+              borderWidth: theme.borderWidth,
+              borderColor: theme.colors[color],
+            },
+          ]
+        : [
+            {
+              borderWidth: theme.borderWidth,
+              borderColor: theme.colors.disabled,
+            },
+          ]
+      : !disabled
+      ? { backgroundColor: theme.colors[color] }
+      : { backgroundColor: theme.colors.disabled };
+  } else {
+    buttonColor = { backgroundColor: 'transparent' };
+  }
 
-  const textColor = outline ? { color } : null;
+  const textColor =
+    outline || type === 'text'
+      ? !disabled
+        ? { color: theme.colors[color] }
+        : { color: theme.colors.disabled }
+      : theme.dark
+      ? { color: theme.colors.textDark }
+      : { color: theme.colors.textLight };
+
   return (
-    <TouchableOpacity style={[styles.button, buttonTypeStyle, buttonColor]}>
-      <View style={styles.content}>
-        <Text style={[styles.label, textColor]}>Default</Text>
+    <TouchableOpacity
+      disabled={disabled}
+      onPress={onPress}
+      style={[styles.button, buttonTypeStyle, buttonColor, buttonStyle]}
+    >
+      <View style={[styles.content, contentStyle]}>
+        <Text
+          style={[
+            styles.label,
+            textColor,
+            uppercase && styles.uppercase,
+            textStyle,
+          ]}
+        >
+          {children}
+        </Text>
       </View>
     </TouchableOpacity>
   );
@@ -105,19 +157,19 @@ const styles = StyleSheet.create({
   defaultButton: {
     borderRadius: 6,
   },
-  outlineButton: {
-    borderWidth: 1,
-  },
   content: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  uppercase: {
+    textTransform: 'uppercase',
   },
   label: {
     marginHorizontal: 16,
     marginVertical: 8,
     color: 'white',
     textAlign: 'center',
-    fontSize: 24,
+    fontSize: 18,
   },
 });

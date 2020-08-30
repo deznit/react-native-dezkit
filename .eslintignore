@@ -6,3 +6,6 @@ lib/
 example/babel.config.js
 example/webpack.config.js
 example/metro.config.js
+
+#docs
+docs

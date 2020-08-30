@@ -1,3 +1,6 @@
+<p align="center">
+<img width="500px" src="./assets/logo.svg">
+</p>
 # react-native-dezkit
 
 Ui library for react native

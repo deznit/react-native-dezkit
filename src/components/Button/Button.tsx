@@ -49,7 +49,7 @@ type ButtonProps = {
   /*
    * - label text to be rendered inside button
    */
-  children: React.ReactNode;
+  children?: React.ReactNode;
   /*
    * - pass styles for button here
    * - like adding padding/ margin around button
@@ -75,7 +75,7 @@ type ButtonProps = {
 const Button = ({
   type,
   outline = false,
-  color = 'danger',
+  color = 'primary',
   onPress,
   children,
   uppercase = true,
@@ -148,7 +148,6 @@ export default Button;
 const styles = StyleSheet.create({
   button: {
     minWidth: 60,
-    // backgroundColor: '#dc3545',
     borderRadius: 6,
   },
   roundedButton: {
@@ -167,7 +166,7 @@ const styles = StyleSheet.create({
   },
   label: {
     marginHorizontal: 16,
-    marginVertical: 8,
+    marginVertical: 12,
     color: 'white',
     textAlign: 'center',
     fontSize: 18,

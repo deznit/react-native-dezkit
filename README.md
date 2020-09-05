@@ -1,9 +1,12 @@
 <p align="center">
 <img width="500px" src="./assets/logo.svg">
 </p>
+
+# 🚧 👷 Under Active Development 👷 :construction:
+
 # react-native-dezkit
 
-Ui library for react native
+UI library for react native
 
 ## Installation
 

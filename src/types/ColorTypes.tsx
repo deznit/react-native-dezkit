@@ -4,4 +4,5 @@ export type ColorType =
   | 'success'
   | 'warning'
   | 'danger'
-  | 'accent';
+  | 'accent'
+  | 'muted';

@@ -11,6 +11,7 @@ const DefaultTheme = {
     textLight: '#fffafb',
     background: '#fffafb',
     disabled: '#D6D6D6',
+    muted: '#D6D6D6',
   },
   borderWidth: 1,
 };

@@ -19,6 +19,7 @@ type DefaultThemeType = {
     textDark: string;
     textLight: string;
     disabled: string;
+    muted: string;
   };
   borderWidth: number;
 };

@@ -9,7 +9,13 @@ const ButtonScreen = () => {
   return (
     <View style={[styles.container]}>
       <Button type="text">Text Button</Button>
-      <Button type="default" color="primary" onPress={onPress}>
+      <Button
+        uppercase={false}
+        type="default"
+        color="primary"
+        disabled
+        onPress={onPress}
+      >
         Default Button
       </Button>
       <Button type="default" outline>

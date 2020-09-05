@@ -3,11 +3,11 @@ import {
   StyleSheet,
   TouchableOpacity,
   View,
-  Text,
   StyleProp,
   ViewStyle,
   TextStyle,
 } from 'react-native';
+import Text from '../Text/Text';
 import { useTheme } from '../../core/Theming';
 import type { ColorType } from '../../types';
 

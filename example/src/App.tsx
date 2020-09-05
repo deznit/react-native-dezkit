@@ -1,10 +1,9 @@
 import React from 'react';
-import { ThemeProvider } from 'react-native-dezkit';
-import { CustomTheme } from './components/CustomTheme';
-import { ButtonScreen, HomeScreen } from './screens';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
+import { ThemeProvider } from 'react-native-dezkit';
+import { CustomTheme } from './components/CustomTheme';
+import { ButtonScreen, HomeScreen, TextScreen } from './screens';
 
 // Add new typescript properties to the theme
 
@@ -46,6 +45,7 @@ export default function App() {
         >
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Buttons" component={ButtonScreen} />
+          <Stack.Screen name="Text" component={TextScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>

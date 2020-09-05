@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
 import { CustomTheme } from '../components/CustomTheme';
+
 const HomeScreen = ({ navigation }: any) => {
   return (
     <View>
@@ -9,6 +10,13 @@ const HomeScreen = ({ navigation }: any) => {
         style={styles.viewContainers}
       >
         <Text style={styles.textStyle}> Buttons </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Text')}
+        style={styles.viewContainers}
+      >
+        <Text style={styles.textStyle}> Text </Text>
       </TouchableOpacity>
     </View>
   );

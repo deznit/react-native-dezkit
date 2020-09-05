@@ -5,8 +5,8 @@ import { Ionicons } from '@expo/vector-icons';
 const Header = () => {
   return (
     <View style={styles.container}>
-      <Ionicons name="ios-menu" color="white" size={32}></Ionicons>
-      <Ionicons name="ios-close" color="white" size={32}></Ionicons>
+      <Ionicons name="ios-menu" color="white" size={32} />
+      <Ionicons name="ios-close" color="white" size={32} />
     </View>
   );
 };

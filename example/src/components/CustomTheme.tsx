@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'react-native-dezkit';
 
 export const CustomTheme = {
-  dark: false,
+  dark: true,
   colors: {
     ...DefaultTheme.colors,
     primary: '#0ead69',

@@ -1,20 +1,18 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Text } from 'react-native-dezkit';
+import { StyleSheet } from 'react-native';
+import { Text, Container } from 'react-native-dezkit';
 
 const TextScreen = () => {
   return (
-    <View style={[styles.container]}>
-      <Text type="title" uppercase>
-        Title text
-      </Text>
+    <Container style={[styles.container]}>
+      <Text type="title">Title text</Text>
       <Text type="heading">Heading text</Text>
-      <Text type="tagline" color="success" uppercase>
+      <Text type="tagline" color="success">
         Tagline
       </Text>
       <Text type="subheading">Subheading</Text>
       <Text type="paragraph">Paragraph</Text>
-    </View>
+    </Container>
   );
 };
 

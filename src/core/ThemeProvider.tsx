@@ -16,6 +16,7 @@ type DefaultThemeType = {
     danger: string;
     warning: string;
     background: string;
+    backgroundDark: string;
     textDark: string;
     textLight: string;
     disabled: string;

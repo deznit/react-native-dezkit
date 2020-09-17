@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     marginVertical: 2,
   },
   paragraph: {
-    fontSize: 38,
+    fontSize: 18,
     marginVertical: 2,
   },
 

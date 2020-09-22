@@ -9,20 +9,14 @@ const ButtonScreen = () => {
   return (
     <Container style={[styles.container]}>
       <Button type="text">Text Button</Button>
-      <Button
-        uppercase={false}
-        type="default"
-        color="primary"
-        disabled
-        onPress={onPress}
-      >
+      <Button uppercase={false} type="default" onPress={onPress}>
         Default Button
       </Button>
-      <Button type="default" outline>
+      <Button type="default" color="success" outline disabled>
         Default Outline
       </Button>
 
-      <Button type="rounded" disabled>
+      <Button type="rounded" color="accent">
         Rounded Button
       </Button>
       <Button type="rounded" outline>

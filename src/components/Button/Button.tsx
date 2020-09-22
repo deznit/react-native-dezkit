@@ -85,42 +85,69 @@ const Button = ({
   disabled,
 }: ButtonProps) => {
   const theme = useTheme();
-  let buttonColor;
 
   const buttonTypeStyle =
     type === 'rounded' ? styles.roundedButton : styles.defaultButton;
 
-  if (type === 'default' || type === 'rounded') {
-    buttonColor = outline
-      ? !disabled
-        ? [
-            {
-              borderWidth: theme.borderWidth,
-              borderColor: theme.colors[color],
-            },
-          ]
-        : [
-            {
-              borderWidth: theme.borderWidth,
-              borderColor: theme.colors.disabled,
-            },
-          ]
-      : !disabled
-      ? { backgroundColor: theme.colors[color] }
-      : { backgroundColor: theme.colors.disabled };
+  // ========== buttonColor start ==========
+  let buttonColor;
+  // if (type === 'default' || type === 'rounded') {
+  //   buttonColor = outline
+  //     ? !disabled
+  //       ? [
+  //           {
+  //             borderWidth: theme.borderWidth,
+  //             borderColor: theme.colors[color],
+  //           },
+  //         ]
+  //       : [
+  //           {
+  //             borderWidth: theme.borderWidth,
+  //             borderColor: theme.colors.disabled,
+  //           },
+  //         ]
+  //     : !disabled
+  //     ? { backgroundColor: theme.colors[color] }
+  //     : { backgroundColor: theme.colors.disabled };
+  // } else {
+  //   buttonColor = { backgroundColor: 'transparent' };
+  // }
+
+  if (type !== 'text') {
+    if (outline) {
+      buttonColor = disabled
+        ? {
+            borderWidth: theme.borderWidth,
+            borderColor: theme.colors.disabled,
+          }
+        : {
+            borderWidth: theme.borderWidth,
+            borderColor: theme.colors[color],
+          };
+    } else {
+      buttonColor = disabled
+        ? { backgroundColor: theme.colors.disabled }
+        : { backgroundColor: theme.colors[color] };
+    }
   } else {
     buttonColor = { backgroundColor: 'transparent' };
   }
 
-  const textColor =
-    outline || type === 'text'
-      ? !disabled
-        ? { color: theme.colors[color] }
-        : { color: theme.colors.disabled }
-      : theme.dark
+  // ========== buttonColor end ==========
+
+  // ========== textColor start ==========
+  let textColor;
+  if (disabled) {
+    textColor = { color: theme.colors.muted };
+  } else if (outline || type === 'text') {
+    textColor = { color: theme.colors[color] };
+  } else {
+    textColor = theme.dark
       ? { color: theme.colors.textDark }
       : { color: theme.colors.textLight };
+  }
 
+  // ========== textColor end ==========
   return (
     <TouchableOpacity
       disabled={disabled}

@@ -5,16 +5,6 @@ import { ThemeProvider } from 'react-native-dezkit';
 import { CustomTheme } from './components/CustomTheme';
 import { ButtonScreen, HomeScreen, TextScreen } from './screens';
 
-// Add new typescript properties to the theme
-
-// const CustomTheme = {
-//   dark: false,
-//   colors: {
-//     ...DefaultTheme.colors,
-//   },
-//   borderWidth: DefaultTheme.borderWidth,
-// };
-
 const Stack = createStackNavigator();
 export default function App() {
   return (
@@ -25,22 +15,13 @@ export default function App() {
           headerMode="screen"
           screenOptions={{
             headerStyle: {
-              backgroundColor: CustomTheme.colors.primary,
+              backgroundColor: CustomTheme.colors.accent,
               height: 100,
-              borderBottomLeftRadius: 16,
-              borderBottomRightRadius: 16,
             },
             headerTintColor: '#fff',
             headerTitleStyle: {
               fontSize: 32,
             },
-            // headerLeft: () => (
-            //   <Ionicons
-            //     name="ios-arrow-back"
-            //     color="white"
-            //     size={32}
-            //   ></Ionicons>
-            // ),
           }}
         >
           <Stack.Screen name="Home" component={HomeScreen} />

@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native';
+import { Container } from 'react-native-dezkit';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { CustomTheme } from '../components/CustomTheme';
 
 const HomeScreen = ({ navigation }: any) => {
   return (
-    <View>
+    <Container>
       <TouchableOpacity
         onPress={() => navigation.navigate('Buttons')}
         style={styles.viewContainers}
@@ -18,7 +19,7 @@ const HomeScreen = ({ navigation }: any) => {
       >
         <Text style={styles.textStyle}> Text </Text>
       </TouchableOpacity>
-    </View>
+    </Container>
   );
 };
 
@@ -30,9 +31,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: CustomTheme.colors.default,
+    backgroundColor: CustomTheme.colors.accent,
     borderRadius: 16,
-    margin: 10,
+    marginHorizontal: 20,
+    marginTop: 20,
   },
   textStyle: {
     fontSize: 22,

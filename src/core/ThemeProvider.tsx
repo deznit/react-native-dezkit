@@ -10,15 +10,14 @@ type DefaultThemeType = {
   dark: boolean;
   colors: {
     primary: string;
-    secondary: string;
+    // secondary: string;
     success: string;
     accent: string;
     danger: string;
     warning: string;
     background: string;
-    backgroundDark: string;
-    textDark: string;
     textLight: string;
+    textDark: string;
     disabled: string;
     muted: string;
   };
@@ -50,10 +49,5 @@ const createTheme = <T extends DefaultThemeType>(defaultTheme: T) => {
 
   return { ThemeProvider, useTheme };
 };
-// export type ThemingType<T> = {
-//   ThemeProvider: ThemeProviderType<T>,
-//   withTheme: WithThemeType<T>,
-//   useTheme(overrides?: $DeepShape<T>): T,
-// };
 
 export default createTheme;

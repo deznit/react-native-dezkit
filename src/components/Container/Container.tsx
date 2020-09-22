@@ -21,9 +21,7 @@ const Container = ({ children, color, style }: ContainerProps) => {
   const theme = useTheme();
   let backgroundColor;
   if (!color) {
-    backgroundColor = theme.dark
-      ? theme.colors.backgroundDark
-      : theme.colors.background;
+    backgroundColor = theme.colors.background;
   } else {
     backgroundColor = theme.colors[color];
   }

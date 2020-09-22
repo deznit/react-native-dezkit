@@ -1,6 +1,6 @@
 export type ColorType =
   | 'primary'
-  | 'secondary'
+  // | 'secondary'
   | 'success'
   | 'warning'
   | 'danger'
